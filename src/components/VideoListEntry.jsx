@@ -1,17 +1,19 @@
 import exampleVideoData from '../data/exampleVideoData.js';
+var VideoListEntry = (props) => (
 
-var VideoListEntry = (video) => (
   <div className="video-list-entry media">
     <div className="media-left media-middle">
-      <img className="media-object" src={video}'https://i.ytimg.com/vi/4ZAEBxGipoA/default.jpg'alt="" />
+      <img className="media-object" src={props.video.snippet.thumbnails.default.url} alt="" />
     </div>
     <div className="media-body">
-      <div className="video-list-entry-title"></div>
-      <div className="video-list-entry-detail">'My website - https://www.thenewboston.com/videos.php Have questions about the tutorial or React? Ask them here ...'</div>
+      <div onClick = {() => props.handleChange(props.video)} className="video-list-entry-title">{props.video.snippet.title}</div>
+      <div className="video-list-entry-detail">{props.video.snippet.description}</div>
     </div>
   </div>
 
 );
+
+
 
 // class VideoListEntry extends React.Component {
 //   constructor(props) {
